@@ -32,22 +32,23 @@ export const site = {
   // ─── Identity ──────────────────────────────────────────────────────────────
 
   /** Site title. Shown in the browser tab and navbar. */
-  title: 'Albert Einstein',
+  title: 'Marine Guillaume',
 
   /** Site description. Used in meta tags. */
-  description: 'A simple, clean, and responsive Astro template for academics. Powered by as-folio.',
+  description:
+    "Enseignante à l'École polytechnique et Directrice des partenariats stratégiques et des affaires publiques chez OpenClassrooms — géopolitique de l'IA, révolution numérique et relations internationales.",
 
   /** Language code for the site. */
-  lang: 'en',
+  lang: 'fr',
 
   // ─── Author ────────────────────────────────────────────────────────────────
 
   author: {
     /** Full name shown in navbar, about page heading, and footer. */
-    name: 'Albert Einstein',
+    name: 'Marine Guillaume',
 
     /** Short email address (used in social links). */
-    email: 'einstein@example.com',
+    email: undefined as string | undefined,
 
     /** Path to profile photo. Place image in public/assets/img/. */
     avatar: '/assets/img/prof_pic.jpg',
@@ -56,18 +57,18 @@ export const site = {
      * Subtitle below your name on the about page.
      * HTML is supported.
      */
-    subtitle: `Theoretical Physicist
+    subtitle: `Enseignante et Co-directrice du Parcours Affaires publiques
       &nbsp;·&nbsp;
-      <a href="https://en.wikipedia.org/wiki/Institute_for_Advanced_Study">Institute for Advanced Study</a>,
-      Princeton`,
+      <a href="https://www.polytechnique.edu/" target="_blank" rel="noopener noreferrer">École polytechnique</a>
+      &nbsp;·&nbsp;
+      Directrice des partenariats stratégiques et des affaires publiques,
+      <a href="https://openclassrooms.com/" target="_blank" rel="noopener noreferrer">OpenClassrooms</a>`,
 
     /**
      * Address block below profile photo.
      * HTML is supported.
      */
-    moreInfo: `<p>Institute for Advanced Study</p>
-      <p>Einstein Drive</p>
-      <p>Princeton, NJ 08540</p>`,
+    moreInfo: '',
   },
 
   // ─── Social links ──────────────────────────────────────────────────────────
@@ -79,16 +80,16 @@ export const site = {
   //   bluesky_handle, medium_username, cv_pdf, rss_icon
 
   socials: {
-    email: 'einstein@example.com',
+    email: undefined as string | undefined,
     x_username: undefined as string | undefined,
     linkedin_username: undefined as string | undefined,
     github_username: undefined as string | undefined,
     gitlab_username: undefined as string | undefined,
     /** Google Scholar user ID — the part after user= in your Scholar URL */
-    scholar_userid: 'qc6CJjYAAAAJ',
+    scholar_userid: undefined as string | undefined,
     orcid_id: undefined as string | undefined,
     /** Inspire HEP author ID */
-    inspire_id: '1010907',
+    inspire_id: undefined as string | undefined,
     researchgate_username: undefined as string | undefined,
     arxiv_id: undefined as string | undefined,
     youtube_id: undefined as string | undefined,
