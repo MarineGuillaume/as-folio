@@ -278,7 +278,7 @@ export const site = {
     category: 'Comments',
     categoryId: '',
     /** How to map discussions to pages. */
-    mapping: 'title' as 'pathname' | https://marineguillaume.fr | 'title' | 'og:title',
+    mapping: 'title' as 'pathname' | 'https://marineguillaume.fr' | 'title' | 'og:title',
     strict: true,
     reactionsEnabled: true,
     inputPosition: 'bottom' as 'top' | 'bottom',
