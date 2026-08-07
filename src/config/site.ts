@@ -48,7 +48,7 @@ export const site = {
     name: 'Marine Guillaume',
 
     /** Short email address (used in social links). */
-    email: undefined as string | undefined,
+    email: 'marine.guillaume@polytechnique.edu' as string | undefined,
 
     /** Path to profile photo. Place image in public/assets/img/. */
     avatar: '/assets/img/prof_pic.jpg',
@@ -80,7 +80,7 @@ export const site = {
   //   bluesky_handle, medium_username, cv_pdf, rss_icon
 
   socials: {
-    email: undefined as string | undefined,
+    email: 'marine.guillaume@polytechnique.edu' as string | undefined,
     x_username: undefined as string | undefined,
     linkedin_username: undefined as string | undefined,
     github_username: undefined as string | undefined,
