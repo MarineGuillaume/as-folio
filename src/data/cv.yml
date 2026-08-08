@@ -40,7 +40,7 @@ cv:
 
     education:
       - institution: OpenClassrooms
-        degree: AI Engineer
+        degree: AI Engineer - Master 2
         start_date: 2026
         end_date: present
 
@@ -52,7 +52,7 @@ cv:
         highlights:
           - Summa cum laude
           - Columbia Department Distinction
-          - 'Dissertation: "Fighting Justly in the XXth Century"'
+          - 'Dissertation: "Fighting Justly in the XXth century: why do weapons disappear from the battlefield?"'
 
       - institution: Sciences Po Paris
         degree: Master's
