@@ -4,7 +4,7 @@
  */
 
 @theme {
-  --font-sans: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Lora', system-ui, -apple-system, serif;
   --font-condensed: 'Roboto Condensed', 'Arial Narrow', sans-serif;
   --font-mono: 'Source Code Pro', 'Roboto Mono', 'Fira Code', ui-monospace, monospace;
 }
