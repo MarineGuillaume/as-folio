@@ -1233,6 +1233,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource/lora@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@fontsource/lora@npm:5.3.0"
+  checksum: 10c0/f9cab55344176c975504fc5fb9d9fe73d86addb71b42118242e95ae37927508692f0daee45ab05379bc3c33dd7081bebcd3454175bf7792aed0a3f86c060e5f5
+  languageName: node
+  linkType: hard
+
 "@fontsource/roboto-condensed@npm:^5.2.8":
   version: 5.2.8
   resolution: "@fontsource/roboto-condensed@npm:5.2.8"
@@ -3552,6 +3559,7 @@ __metadata:
     "@commitlint/cli": "npm:^21.0.0"
     "@commitlint/config-conventional": "npm:^21.0.0"
     "@eslint/js": "npm:^10.0.0"
+    "@fontsource/lora": "npm:^5.3.0"
     "@fontsource/roboto": "npm:^5.2.10"
     "@fontsource/roboto-condensed": "npm:^5.2.8"
     "@fontsource/source-code-pro": "npm:^5.2.7"
