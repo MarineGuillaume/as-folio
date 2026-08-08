@@ -142,7 +142,7 @@ if (format === 'rendercv' && rc) {
                   <a class="anchor" id="summary"></a>
                   <div class="card mt-3 p-3">
                     <h3 class="card-title font-weight-medium">Professional Summary</h3>
-                    <p class="card-text font-weight-light">{rc.summary}</p>
+                    <p class="card-text font-weight-light cv-summary">{rc.summary}</p>
                   </div>
                 </>
               )}
@@ -389,6 +389,11 @@ if (format === 'rendercv' && rc) {
 </Page>
 
 <style>
+  /* Preserve line breaks authored in cv.yml's summary field */
+  .cv-summary {
+    white-space: pre-line;
+  }
+
   /* Two-column layout: sidebar + content */
   .cv-page-wrapper {
     display: flex;
