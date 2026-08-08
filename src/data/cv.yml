@@ -3,25 +3,24 @@
 
 cv:
   name: Marine Guillaume
+  email: marine.guillaume@polytechnique.edu
   summary: >-
-    Lecturer and Co-director of the Public Affairs Track at École polytechnique;
-    Director of Strategic Partnerships and Public Affairs at OpenClassrooms.
-    Focus areas: geopolitics of AI, digital revolution & international relations, ethics
-    of war, innovation and rules of engagement.
+    Teacher and Co-director of the Public Affairs Track at École polytechnique;
+    Director of Strategic Partnerships - Public Sector and B2B at OpenClassrooms.
 
   sections:
     experience:
       - company: École polytechnique
-        position: 'Lecturer (Geopolitics of AI, Global Balances) and Co-director of the Public Affairs Track'
+        position: Teacher and Co-director of the Public Affairs Track
         start_date: 2018
         end_date: present
         highlights:
-          - 'Lecturer for the course "Digital Revolution and International Relations" (elective, 3rd year), since 2019'
-          - 'Lecturer for the course "Global Balances" (mandatory, 1st year), since 2019'
+          - 'Teacher of the course "Digital Revolution and International Relations" (elective, 3rd year), since 2019'
+          - 'Teacher of the course "Global Balances" (mandatory, 1st year), since 2019'
           - 'Co-director of the Public Affairs Track, since 2019'
 
       - company: OpenClassrooms
-        position: Director of Strategic Partnerships and Public Affairs
+        position: Director of Strategic Partnerships in Public Sector and B2B
         start_date: 2022
         end_date: present
 
@@ -31,7 +30,7 @@ cv:
         end_date: 2018
 
       - company: French Ministry for Europe and Foreign Affairs
-        position: "Diplomatic Advisor for Digital Affairs and Internet Governance, Center for Analysis, Planning and Strategy (CAPS)"
+        position: 'Diplomatic Advisor for Digital Affairs, Center for Analysis, Planning and Strategy (CAPS)'
         start_date: 2016
         end_date: 2018
 
@@ -65,14 +64,38 @@ cv:
           - 'Thesis: the strategies of non-governmental organizations and the use of white phosphorus'
 
     publications:
-      - title: 'Revolvere — Révolution numérique et ordre international'
-        journal: Manuscript under review
+      - title: "Le numérique au service de la démocratie - enjeux et perspectives pour l'intérêt général"
+        authors:
+          - Guillaume Marine
+        journal: Observatoire Philanthropie & Société, Fondation de France
+        date: 2024-12
 
-      - title: Fighting Justly in the 20th Century
-        journal: Manuscript under review
+      - title: "Les manipulations de l'information : un défi pour nos démocraties"
+        authors:
+          - Jeangène-Vilmer Jean-Baptiste
+          - Escorica Alexandre
+          - Guillaume Marine
+          - Herrera Janaina
+        journal: CAPS et IRSEM
+        date: '2018'
 
-      - title: 'Démocratie(s) et révolution(s) numérique(s)'
-        journal: Work in progress
+      - title: '« Un cyberespace de conflictualité »'
+        authors:
+          - Guillaume Marine
+        journal: "in Benoît Pelopidas et Frédéric Ramel, Guerres et conflits armés au XXIe siècle, Presses de Sciences Po, coll. « L'Enjeu mondial »"
+        date: '2018'
+
+      - title: "L'administration américaine et les GAFA(M) : la fin d'une histoire d'amour ?"
+        authors:
+          - Guillaume Marine
+        journal: Révolutions technologiques, Questions internationales
+        date: '2018'
+
+      - title: 'Le napalm dans la doctrine et la pratique américaines du bombardement, 1942-1975'
+        authors:
+          - Guillaume Marine
+        journal: 'Mass Violence & Résistance, [en ligne]'
+        date: 2017-01
 
     skills:
       - label: Languages
