@@ -441,10 +441,10 @@ export const site = {
      *   Custom hover:     { light: '#0076df', dark: '#68c0d9', hoverLight: '#0a53be', hoverDark: '#9fd8ea' }
      */
     color: {
-      light: 'auto' as string,
-      dark: 'auto' as string,
-      hoverLight: 'auto' as string,
-      hoverDark: 'auto' as string,
+      light: '#8FA68E' as string,
+      dark: '#8FA68E' as string,
+      hoverLight: '#7A8D79' as string,
+      hoverDark: '#A0B39F' as string,
     },
   },
 } as const;
