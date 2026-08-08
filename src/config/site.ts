@@ -36,10 +36,10 @@ export const site = {
 
   /** Site description. Used in meta tags. */
   description:
-    "Enseignante à l'École polytechnique et Directrice des partenariats stratégiques et des affaires publiques chez OpenClassrooms — géopolitique de l'IA, révolution numérique et relations internationales.",
+    'Lecturer at École polytechnique and Director of Strategic Partnerships and Public Affairs at OpenClassrooms — geopolitics of AI, the digital revolution, and international relations.',
 
   /** Language code for the site. */
-  lang: 'fr',
+  lang: 'en',
 
   // ─── Author ────────────────────────────────────────────────────────────────
 
@@ -57,11 +57,11 @@ export const site = {
      * Subtitle below your name on the about page.
      * HTML is supported.
      */
-    subtitle: `Enseignante et Co-directrice du Parcours Affaires publiques
+    subtitle: `Lecturer and Co-director of the Public Affairs Track
       &nbsp;@&nbsp;
       <a href="https://www.polytechnique.edu/" target="_blank" rel="noopener noreferrer">École polytechnique</a>
       &nbsp;·&nbsp;
-      Directrice des partenariats stratégiques Secteur Public et B2B
+      Director of Strategic Partnerships, Public Sector and B2B
       &nbsp;@&nbsp;
       <a href="https://openclassrooms.com/" target="_blank" rel="noopener noreferrer">OpenClassrooms</a>`,
 

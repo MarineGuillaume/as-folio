@@ -4,34 +4,34 @@
 cv:
   name: Marine Guillaume
   summary: >-
-    Enseignante et Co-directrice du Parcours Affaires publiques à l'École polytechnique ;
-    Directrice des partenariats stratégiques et des affaires publiques chez OpenClassrooms.
-    Domaines : géopolitique de l'IA, révolution numérique & relations internationales, éthique
-    de la guerre, innovation et rules of engagement.
+    Lecturer and Co-director of the Public Affairs Track at École polytechnique;
+    Director of Strategic Partnerships and Public Affairs at OpenClassrooms.
+    Focus areas: geopolitics of AI, digital revolution & international relations, ethics
+    of war, innovation and rules of engagement.
 
   sections:
     experience:
       - company: École polytechnique
-        position: 'Enseignante (Géopolitique de l''IA, Équilibres mondiaux) et Co-directrice du Parcours Affaires publiques'
+        position: 'Lecturer (Geopolitics of AI, Global Balances) and Co-director of the Public Affairs Track'
         start_date: 2018
         end_date: present
         highlights:
-          - 'Enseignante du cours Révolution numérique et relations internationales (cours électif, 3ème année), depuis 2019'
-          - 'Enseignante du cours Équilibres mondiaux (cours obligatoire, 1ère année), depuis 2019'
-          - 'Co-directrice du Parcours Affaires publiques, depuis 2019'
+          - 'Lecturer for the course "Digital Revolution and International Relations" (elective, 3rd year), since 2019'
+          - 'Lecturer for the course "Global Balances" (mandatory, 1st year), since 2019'
+          - 'Co-director of the Public Affairs Track, since 2019'
 
       - company: OpenClassrooms
-        position: Directrice des partenariats et des affaires publiques
+        position: Director of Strategic Partnerships and Public Affairs
         start_date: 2022
         end_date: present
 
-      - company: Ministère de l'Europe et des Affaires étrangères
-        position: Adjointe de l'Ambassadeur pour le numérique
+      - company: French Ministry for Europe and Foreign Affairs
+        position: Deputy to the Digital Ambassador
         start_date: 2016
         end_date: 2018
 
-      - company: Ministère de l'Europe et des Affaires étrangères
-        position: "Conseillère diplomatique pour les affaires numériques et la gouvernance de l'internet, Centre d'Analyse, de Prévision et de Stratégie (CAPS)"
+      - company: French Ministry for Europe and Foreign Affairs
+        position: "Diplomatic Advisor for Digital Affairs and Internet Governance, Center for Analysis, Planning and Strategy (CAPS)"
         start_date: 2016
         end_date: 2018
 
@@ -42,38 +42,38 @@ cv:
 
     education:
       - institution: OpenClassrooms
-        degree: Ingénieur en IA
+        degree: AI Engineer
         start_date: 2026
         end_date: present
 
-      - institution: Sciences Po Paris et Columbia University
-        degree: Doctorat
-        area: Science politique
+      - institution: Sciences Po Paris and Columbia University
+        degree: PhD
+        area: Political Science
         start_date: 2010
         end_date: 2015
         highlights:
-          - Mention summa cum laude
-          - 'Thèse : "Fighting Justly in the XXth Century"'
+          - Summa cum laude
+          - 'Dissertation: "Fighting Justly in the XXth Century"'
 
       - institution: Sciences Po Paris
-        degree: Master
-        area: Affaires internationales
+        degree: Master's
+        area: International Affairs
         start_date: 2008
         end_date: 2010
         highlights:
-          - Mention summa cum laude
-          - "Mémoire : les stratégies des organisations non gouvernementales et l'usage du phosphore blanc"
+          - Summa cum laude
+          - 'Thesis: the strategies of non-governmental organizations and the use of white phosphorus'
 
     publications:
       - title: 'Revolvere — Révolution numérique et ordre international'
-        journal: Manuscrit en cours de revue
+        journal: Manuscript under review
 
       - title: Fighting Justly in the 20th Century
-        journal: Manuscrit en cours de revue
+        journal: Manuscript under review
 
       - title: 'Démocratie(s) et révolution(s) numérique(s)'
-        journal: En cours de rédaction
+        journal: Work in progress
 
     skills:
-      - label: Langues
-        details: Français (langue maternelle), anglais (courant), portugais (C1)
+      - label: Languages
+        details: French (native), English (fluent), Portuguese (C1)
