@@ -58,10 +58,11 @@ export const site = {
      * HTML is supported.
      */
     subtitle: `Enseignante et Co-directrice du Parcours Affaires publiques
-      &nbsp;·&nbsp;
+      &nbsp;@&nbsp;
       <a href="https://www.polytechnique.edu/" target="_blank" rel="noopener noreferrer">École polytechnique</a>
       &nbsp;·&nbsp;
-      Directrice des partenariats stratégiques et des affaires publiques,
+      Directrice des partenariats stratégiques Secteur Public et B2B
+      &nbsp;@&nbsp;
       <a href="https://openclassrooms.com/" target="_blank" rel="noopener noreferrer">OpenClassrooms</a>`,
 
     /**
