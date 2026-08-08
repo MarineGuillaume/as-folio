@@ -15,9 +15,8 @@ cv:
         start_date: 2018
         end_date: present
         highlights:
-          - 'Teacher of the course "Digital Revolution and International Relations" (elective, 3rd year), since 2019'
-          - 'Teacher of the course "Global Balances" (mandatory, 1st year), since 2019'
-          - 'Co-director of the Public Affairs Track, since 2019'
+          - '"Digital Revolution and International Relations" (elective, 3rd year)'
+          - '"Équilibres mondiaux" (mandatory, 1st year)'
 
       - company: OpenClassrooms
         position: Director of Strategic Partnerships in Public Sector and B2B
