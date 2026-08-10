@@ -1,5 +1,5 @@
 ---
-title: Special Theory of Relativity
+title: "Combattre justement à l'ère de l'IA"
 description: A revolutionary framework reconciling classical mechanics with electromagnetism by postulating the constancy of the speed of light and the equivalence of inertial reference frames.
 importance: 1
 category: physics
