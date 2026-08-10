@@ -57,10 +57,11 @@ export const site = {
      * Subtitle below your name on the about page.
      * HTML is supported.
      */
-    subtitle: `Lecturer and Co-director of the Public Affairs Track
+    subtitle: `Professor and Co-director of the Public Affairs Track
       &nbsp;@&nbsp;
       <a href="https://www.polytechnique.edu/" target="_blank" rel="noopener noreferrer">École polytechnique</a>
       &nbsp;·&nbsp;
+      <br />
       Director of Strategic Partnerships, Public Sector and B2B
       &nbsp;@&nbsp;
       <a href="https://openclassrooms.com/" target="_blank" rel="noopener noreferrer">OpenClassrooms</a>`,
