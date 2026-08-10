@@ -8,9 +8,6 @@ import { readingTime } from '@utils/reading-time';
 import { getCollection } from 'astro:content';
 
 import IconCalendar from '~icons/fa-solid/calendar';
-import IconHashtag from '~icons/fa-solid/hashtag';
-import IconTag from '~icons/fa-solid/tag';
-import IconTags from '~icons/fa-solid/tags';
 import IconThumbtack from '~icons/fa-solid/thumbtack';
 
 const localPosts = (await getCollection('posts'))
@@ -68,9 +65,6 @@ const perPage = site.blog.postsPerPage;
 const totalPages = Math.ceil(allPosts.length / perPage);
 const pagePosts = allPosts.slice(0, perPage);
 
-const displayTags = site.blog.displayTags;
-const displayCategories = site.blog.displayCategories;
-
 // Grid column count for featured cards
 const featuredCols = pinnedPosts.length >= 3 ? '3' : '2';
 
@@ -84,43 +78,11 @@ for (const post of pagePosts) {
 const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
 ---
 
-<Page title="Blog" description={site.blog.description}>
+<Page title="Blog" description={site.blog.description || site.description}>
   <!-- Header bar -->
   <div class="header-bar">
     <h1>{site.blog.name}</h1>
-    <h2>{site.blog.description}</h2>
-  </div>
-
-  <!-- Tag / category list + all-tags link -->
-  <div class="tag-category-list">
-    <ul class="m-0 p-0">
-      {
-        displayTags.map((tag, i) => (
-          <>
-            <li>
-              <IconHashtag /> <a href={`${site.base}/blog/tag/${tag}/`}>{tag}</a>
-            </li>
-            {i < displayTags.length - 1 && <p>&bull;</p>}
-          </>
-        ))
-      }
-      {displayTags.length > 0 && displayCategories.length > 0 && <p>&bull;</p>}
-      {
-        displayCategories.map((cat, i) => (
-          <>
-            <li>
-              <IconTag /> <a href={`${site.base}/blog/category/${cat}/`}>{cat}</a>
-            </li>
-            {i < displayCategories.length - 1 && <p>&bull;</p>}
-          </>
-        ))
-      }
-      {(displayTags.length > 0 || displayCategories.length > 0) && <p>&bull;</p>}
-      <li>
-        <IconTags />{' '}
-        <a href={`${site.base}/blog/tags/`}>all tags</a>
-      </li>
-    </ul>
+    {site.blog.description && <h2>{site.blog.description}</h2>}
   </div>
 
   <!-- Featured / Pinned posts card grid -->
@@ -143,7 +105,7 @@ const postYears = [...postsByYear.keys()].sort((a, b) => b - a);
                             <div class="float-right">
                               <IconThumbtack style="font-size:0.75rem;" />
                             </div>
-                            <h3 class="card-title text-lowercase">{post.data.title}</h3>
+                            <h3 class="card-title">{post.data.title}</h3>
                             {post.data.description && (
                               <p class="card-text">{post.data.description}</p>
                             )}
