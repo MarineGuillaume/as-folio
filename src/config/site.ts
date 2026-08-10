@@ -411,7 +411,7 @@ export const site = {
   pages: {
     projects: {
       /** Description shown below the "projects" heading on the projects page. */
-      description: 'A growing collection of your cool projects.',
+      description: 'Ongoing projects',
     },
     teaching: {
       /** Description shown below the "teaching" heading on the teaching page. */
