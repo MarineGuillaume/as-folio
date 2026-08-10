@@ -1,96 +1,214 @@
 ---
 title: "Digital Revolution and IR Theory: A Blind Spot?"
 date: 2025-03-20
-description: How as-folio implements dark mode — no flash of unstyled content, CSS custom properties, and per-component theme awareness.
-tags: [theming, formatting]
-categories: [demo]
+description: Réalisme, libéralisme et constructivisme — les trois paradigmes classiques des relations internationales, et leur angle mort sur la révolution numérique.
+tags: [relations-internationales, theorie, revolution-numerique]
+categories: [teaching]
 math: false
 toc: true
 relatedPosts: true
 pinned: true
 ---
 
-as-folio ships with a polished dark mode implementation that matches al-folio's visual identity. The toggle is in the navbar (☀/☽ icon). Preference is persisted to `localStorage` and restored before the page renders to avoid any flash of unstyled content.
+Les trois paradigmes que l'on retient en règle générale pour rendre compréhensibles les relations internationales sont le réalisme, le libéralisme et le constructivisme. Quatre remarques à partager avant d'explorer ces dernières :
 
-## How it works
+1. L'ordre dans lequel sont citées les théories n'est pas chronologique : il est sous-tendu par le principe de représentativité, notamment dans la littérature anglo-saxonne dans laquelle le réalisme est très majoritaire (70%) par rapport au libéralisme (25%) et au constructivisme (5%). Le constructivisme a longtemps été une approche défendue par des européens qui vont privilégier certaines méthodes et disciplines des sciences sociales (sociologie, individualisme méthodologique), là où les penseurs américains ont préféré déployer une discipline propre avec ses concepts et ses penseurs. Chacune de ces théories correspond à un moment de l'histoire : le libéralisme a émergé dans le moment post première guerre mondiale (développement de la Société Des Nations et des échanges commerciaux), le réalisme lui a succédé dès 1939 et le constructivisme a pris de l'importance après la Chute du Mur de Berlin.
 
-### 1. FOUC prevention
+2. le constructivisme n'est traditionnellement pas considéré comme une théorie explicative, mais plutôt comme une approche / un prisme qui permet d'améliorer notre compréhension des phénomènes (et non forcément de leur donner un sens, une cause et un effet). On parle aussi souvent de social-constructivisme pour le décrire.
 
-An inline `<script>` in `<head>` — before any stylesheet — reads `localStorage` and sets `data-theme="dark"` on `<html>` before the browser paints:
+3. les théories ont longtemps été considérées comme étant non cumulatives / exclusives mais c'est moins le cas aujourd'hui : il est possible qu'un phénomène soit en partie expliqué par une théorie et en partie expliqué par une autre. C'est particulièrement vrai pour le social constructivisme qui vise à explorer les phénomènes dans leur aspect social, ce qui s'accommode avec des théories dites de la causalité.
 
-```js
-// Runs synchronously before first paint
-const theme = localStorage.getItem('theme') ?? 'light';
-document.documentElement.setAttribute('data-theme', theme);
-```
+4. certains parlent d'un tournant empirique dans les relations internationales qui se serait déroulé fin des années 1990, en réaction à ce qui a été évalué comme l'impasse des grandes théories. Autrement dit, un courant significatif de chercheurs ont exhorté la discipline à ne plus se fier à ces grands narratifs explicatifs mais plutôt à appuyer leur réflexion sur des analyses empiriques, très souvent quantitatives, de phénomènes en veillant à ne pas "tout" expliquer mais à s'attacher plutôt à éclairer certains phénomènes (ce fut particulièrement le cas pour les études autour des guerres civiles qui se sont multipliées dans les années 1990). Dit de manière triviale, on est passé de la logique de la guerre froide (explication macro sur un phénomène mondial) à l'explication du déclenchement de la violence dans le cadre d'un conflit précis et pour un temps donné.
 
-Because this script is `is:inline` in Astro, it is never deferred or bundled — it runs at the earliest possible moment.
+Un premier regard sur ces trois théories dites classiques suffit pour comprendre que la technologie joue pour chacune d'entre elles un rôle non premier, dans le sens où elle est la plupart du temps envisagée comme un moyen / medium et non une finalité. Cette forme d'impensé s'explique en partie par le contexte historique dans lequel chacune des théories s'inscrit mais aussi par l'idée sous-jacente qu'elles partagent toutes : la technologie resterait toujours un moyen, un instrument au service d'autres logiques qui seraient prévalentes (pouvoir, économique, sociales).
 
-### 2. CSS custom properties
+C'est cette dernière idée qu'il nous faut questionner en se demandant notamment : et si la révolution numérique remettait cette prévalence en cause ? Et si le numérique structurait tellement certaines logiques qu'il en prendrait le dessus ? Cette interrogation sera l'occasion de mieux comprendre les trois paradigmes dits classiques, essentiels dès lors que l'on souhaite étudier et comprendre les relations internationales.
 
-All colours live in `src/styles/_colors.css` as CSS custom properties, mirroring al-folio's variable names exactly:
+L'objectif des lignes ci-dessous est moins de vous donner une vision exhaustive de ces théories que de vous partager leurs fondements et leur vision des technologies.
 
-```css
-:root {
-  --global-bg-color: #ffffff;
-  --global-text-color: #000000;
-  --global-theme-color: #b509ac;
-  /* ... */
-}
+## C. La théorie réaliste — la technologie au service et pour la puissance
 
-[data-theme='dark'] {
-  --global-bg-color: #1c1c1c;
-  --global-text-color: #ffffff;
-  --global-theme-color: #b509ac; /* same accent in dark */
-  /* ... */
-}
-```
+### Histoire
 
-Every component references these variables rather than hard-coded colours, so toggling `data-theme` instantly re-paints the whole page without a single JavaScript re-render.
+Le réalisme s'est développé en tant qu'approche semi-moderne des sciences sociales dans l'entre-deux-guerres et après la Seconde Guerre mondiale en réponse à l'école de pensée que les réalistes tels que Carr (1939) et Morgenthau (1948) ont qualifiée d'"idéaliste" ou d'"utopique".
 
-### 3. The toggle component
+Aux yeux des réalistes, les croyances (libérales) de Woodrow Wilson, Norman Angell (1917) et d'autres universitaires et hommes d'État, selon lesquelles la guerre et les conflits internationaux pouvaient être surmontés par l'application de la raison grâce au développement de lois et d'institutions internationales, auraient ignoré la centralité du pouvoir dans un domaine politique sans souverain (soit un système anarchique). Ainsi, la reconnaissance des effets inéluctables du pouvoir relatif dans un système d'anarchie est le point de départ de la théorie réaliste. La théorie réaliste est pessimiste quant au potentiel de changement du système international, et tend plutôt à mettre l'accent sur la répétition, à travers l'histoire, de modèles réguliers de comportement des États — modèles motivés principalement par la compétition pour le pouvoir.
 
-`ThemeToggle.astro` writes to `localStorage` and updates `data-theme`:
+### Fondamentaux
 
-```astro
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  toggle?.addEventListener('click', () => {
-    const current = document.documentElement.getAttribute('data-theme');
-    const next = current === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  });
-</script>
-```
+La théorie réaliste se fonde sur sept grands principes qui sont :
 
-### 4. Giscus comment theme sync
+- La structure du système international est anarchique et matérielle : le but de tout unité est donc de survivre.
+- Les Etats sont les acteurs les plus importants du système international.
+- Les Etats ont des alliés, et non des amis.
+- Les Etats sont des acteurs unifiés et rationnels.
+- Les Etats s'intéressent aux gains relatifs.
+- La guerre est endémique.
+- L'histoire est cyclique.
 
-When comments are enabled, `Giscus.astro` observes `data-theme` changes with a `MutationObserver` and posts a message to the Giscus `<iframe>` to switch its own theme:
+### Grand principe
 
-```js
-new MutationObserver(() => {
-  const theme = document.documentElement.getAttribute('data-theme');
-  giscusFrame.contentWindow.postMessage(
-    { giscus: { setConfig: { theme: theme === 'dark' ? 'dark' : 'light' } } },
-    'https://giscus.app',
-  );
-}).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-```
+Le principe au cœur de la théorie réaliste est celui de l'équilibre des puissances (balance of power), théorisé dans un premier temps par Morgenthau. Parce qu'il y a une absence d'autorité d'ensemble sur le système international (i) et que le pouvoir est nécessairement distribué de manière inégale (ii), les Etats sont dans un déséquilibre permanent et ne cherchent qu'une chose : prendre avantage sur le système. Cette volonté de prendre avantage sur le système rend tout rapport interétatique similaire à un rapport de force qui se comprend dans une perspective de jeu à somme nulle. Cela signifie donc que le gain d'un Etat constitue obligatoirement une perte pour l'autre.
 
-## Customising the accent colour
+Cette théorie, qui est aussi définie comme une attitude tant elle incite à l'action, s'appuie sur plusieurs auteurs que l'on qualifie volontiers et rétrospectivement de réalistes :
 
-The theme colour is set in `src/config/site.ts` under `theme.color`. To change the accent, update `light` and `dark` (and optionally `hoverLight` and `hoverDark`) — each takes any CSS colour, or `'auto'` for the built-in default:
+- Thucydide, "la guerre est inévitable"
+- Machiavel, "la vertu principale du Prince est de se préserver"
+- Hobbes, "l'homme est un loup pour l'homme" (et le dilemme de sécurité en action)
+- Morgenthau, premier auteur réaliste classique, "l'homme est naturellement guidé par le pouvoir, l'homme d'Etat pense les intérêts en termes de puissance"
 
-```ts
-theme: {
-  color: {
-    light: '#0070f3', /* Vercel blue */
-    dark: '#68c0d9',
-    hoverLight: 'auto',
-    hoverDark: 'auto',
-  },
-},
-```
+### Le dialogue mélien
 
-That's all — every badge, link highlight, tag pill, and interactive element picks it up automatically.
+Thucydide (395 av. J.-C.) est généralement présenté (ou a été "récupéré") comme l'ancêtre de la pensée réaliste pour les perspectives de politique internationale qu'il offre dans son histoire des guerres du Péloponnèse. "Ce qui a rendu la guerre inévitable", écrit-il dans un premier passage, "c'est la croissance de la puissance athénienne et la crainte qu'elle suscitait à Sparte." À bien des égards, l'analyse de Thucydide préfigure la théorie de la stabilité hégémonique de Gilpin (1981). La politique internationale est par nature conflictuelle, le pouvoir étant l'arbitre ultime dans un environnement d'anarchie. Le texte de Thucydide le plus souvent cité est le dialogue mélien, connu pour le principe majeur que "le droit ne tient qu'entre égaux, les forts font ce qu'ils peuvent, et les faibles endurent ce qu'ils doivent". Plusieurs éléments sont à retenir dans ce texte : le souhait des Méliens de rester neutres dans une guerre de Péloponnèse qui touche tout le monde (i) et alors même que les Athéniens sont devenus trop forts (ii). Parce que la justice ne s'applique pas entre puissances inégales, les Méliens ne peuvent pas subir d'autres sorts que la mort. Les Spartiates ne viennent pas aider : le lien de parenté ne suffit pas. La mauvaise réputation qui pourrait détruire leur réputation n'effraie pas les Athéniens. Les Athéniens affament la ville, tuent les hommes en âge de se battre et réduisent femmes et enfants à l'esclavage.
+
+Le réalisme s'appuie sur des "pères fondateurs" qu'il s'attribue mais a surtout été nourri par des auteurs modernes : E.H. Carr, Hans Morgenthau, Kenneth Waltz. Chacun insiste sur un élément qui serait fondamental pour comprendre les relations entre Etats :
+
+- E.H. Carr : le pouvoir imprègne toutes les relations sociales et politiques ;
+- Hans Morgenthau : la nature humaine est fondamentalement guidée par la recherche de pouvoir (lesser evil rather than absolute good) ;
+- Kenneth Waltz, néoréaliste (les trois images : la nature humaine, l'Etat et le système international — le système international est la cause nécessaire mais non suffisante de la guerre, la nature humaine et l'Etat sont les causes structurelles de la guerre).
+
+### Les technologies dans la doctrine réaliste
+
+Il y a bien chez les Réalistes (classiques et néo-classiques) une prise en compte du rôle des technologies dans les relations internationales. On peut rapidement décliner cette prise en compte sous la forme de deux propositions majeures :
+
+**Les technologies sont décisives dans les relations de pouvoir en tant qu'elles permettent de dissuader, de se protéger ou d'attaquer.**
+
+Pour comprendre cette proposition, il est fondamental de se rappeler les grands principes de la théorie réaliste et de connaître le principe de dilemme de sécurité (très bon article de wikipedia à ce sujet). Ce concept s'appuie sur un rationnel simple : les mesures que prend un Etat visant à renforcer sa sécurité pour se protéger peuvent paradoxalement mener à la construction d'un environnement moins sécurisé avec l'apparition de tensions, de phénomène d'escalade ou de conflit avec d'autres parties produisant une situation qu'aucune des parties ne souhaite vraiment. C'est une application du dilemme du prisonnier à l'échelle internationale et étatique.
+
+La technologie joue dans le dilemme de sécurité un rôle majeur en tant qu'elle est vue par les autres Etats comme étant un révélateur du contexte dans lequel évolue l'Etat qui augmente ses ressources : offensif ou défensif. Et le contexte dans lequel s'inscrit le dilemme de sécurité est majeur comme l'a montré Robert Jervis : dans un contexte offensif clairement identifié, le renforcement des capacités dites offensives est perçu comme un mouvement général qui ne signale pas nécessairement une volonté belliqueuse ; or, dans un contexte défensif clairement identifié, le renforcement des capacités dites offensives est perçu comme une déclaration de guerre (car coûteux et ne suivant pas le mouvement général des Etats). Jervis voit dans la Première Guerre mondiale un exemple de ce dernier contexte. Alors dans cette perspective, la nature de la technologie acquise permettrait aux acteurs de comprendre si les Etats voisins s'arment pour attaquer ou pour défendre.
+
+Il existe cependant une limite à cette approche. En effet, il est largement admis, y compris par Jervis, que pratiquement aucune arme n'est intrinsèquement "offensive" ou "défensive". Par ailleurs, Richard Betts souligne que la qualification de l'arme repose très largement sur une perception, ce qui rend l'analyse potentiellement infalsifiable.
+
+**Les technologies sont décisives pour les Etats quand elles leur confèrent un avantage irrattrapable, un gain relatif qui ne peut être repris.**
+
+Les réalistes sont très marqués par l'introduction de l'arme nucléaire, dont la puissance destructive mutuelle est censée inciter les Etats à ne pas attaquer et ne pas dépasser certains seuils de conflictualité. L'arme nucléaire est souvent le modèle à partir duquel les réalistes pensent la technologie, alors même que ses caractéristiques ne s'appliquent pas à bien des armes (dont les armes dites numériques). Cela conduit les réalistes à prendre en compte la technologie dans une perspective de technological gap (écart technologique) : la technologie est décisive quand elle permet l'obtention d'un gain relatif irrattrapable par rapport aux autres puissances. Or, peu d'armes atteignent les seuils de destruction des armes nucléaires. Et peu d'armes sont constitutives du principe de dissuasion comme peut l'être l'arme nucléaire.
+
+### Les limites
+
+On reproche deux principales limites à la théorie réaliste :
+
+- **une théorie prescriptive plutôt que descriptive** : il est souvent reproché à la théorie réaliste de prescrire plutôt que décrire, notamment parce qu'elle est fondée sur un postulat normatif fort (la nature humaine est de manière inhérente tournée vers le conflit). Plusieurs auteurs contestent cette approche, reprochant aux réalistes de ne pas regarder assez du côté de la coopération et surtout de créer une situation de prophétie auto-réalisatrice. Si tout est interprété au prisme de la conflictualité, alors il est difficile voire impossible de mettre en œuvre des pratiques de coopération (rien n'est tentative de coopérer, tout est tentative d'agresser), ce qui permet de justifier a posteriori et rétrospectivement que les Etats ne cherchent que le conflit.
+- **un échec de sa capacité à prévoir / anticiper** : la fin de la guerre froide est LE grand échec du réalisme en tant que ce dernier aurait été incapable de la prévoir. Ce n'est pas étonnant dès lors que beaucoup attribuent la fin de la guerre froide à une implosion intérieure (i) et que le réalisme s'intéresse peu aux politiques domestiques hors de toute considération liée à l'intérêt national (ii), tandis que l'étude de la circulation des idées dans une approche transnationale sort de leurs cadres théoriques (iii). Cela rejoint une autre critique souvent adressée aux réalistes : leur incapacité à prendre en compte le fait que l'Etat peut ne pas être un acteur rationnel (notamment du fait des logiques bureaucratiques), ne pas être un acteur unitaire et homogène, et surtout peut avoir un intérêt national changeant que le seul désir de survivre ne résume pas.
+
+## D. La théorie libérale — la technologie au service des relations commerciales et contractuelles
+
+Le libéralisme est la première théorie classique dans l'ordre chronologique : elle a été développé principalement dans les suites de la Première Guerre Mondiale, en réaction à la lecture du conflit qui était dominante à l'époque (très rapidement : la Première Guerre Mondiale serait le résultat malheureux d'un enchaînement de circonstances qui auraient pu être évitées si les liens entre Etats avaient été plus robustes et si des instances extérieures dans lesquelles les Etats auraient pu échanger avaient existé).
+
+Il faut comprendre que réalisme et libéralisme sont très proches : ils partagent des bases théoriques similaires mais se sont largement construits l'un contre l'autre. C'est parce que le libéralisme a été considéré comme trop idéaliste (normatif plus que descriptif, représentant ce qui devrait être plutôt que ce qui est) que le réalisme s'est imposé.
+
+Le libéralisme se fonde notamment sur trois idées qui s'opposent aux postulats fondamentaux du réalisme :
+
+- La structure du système international est anarchique et matérielle : pour autant, cela ne veut pas dire que les Etats sont condamnés à un état de guerre permanent ; en réalité, les Etats peuvent avoir des intérêts communs qui sont entretenus et construits dans des institutions internationales qui permettent une certaine stabilité et un partage d'information apaisant les relations ;
+- Le moteur des Etats est bien l'intérêt national mais la nature du régime étatique transcende les logiques de puissance (autrement dit, la puissance est fonction de la nature du régime) ;
+- Alors que les réalistes considèrent que les Etats sont soumis à un dilemme (s'étendre ou survivre), les libéraux croient profondément en la sécurité collective : ainsi, le dilemme est plutôt le suivant : coopérer ou s'accommoder. In fine, l'approche libérale s'appuie sur l'idée que le dilemme du prisonnier peut, sous certaines conditions, s'achever en faveur de la coopération. L'important pour les libéraux est de bien identifier ces conditions et la manière dont on peut effectivement les imposer à l'échelle internationale.
+
+La théorie libérale est traversée de plusieurs traditions distinctes. Michael Doyle en propose trois :
+
+- **libéralisme pacifique** — fondé sur la notion Schumpeterienne que les citoyens des démocraties ne poursuivent pas la guerre, cette dernière rendant impossible le profit. L'absence de profit équivaut absence de motivation et de volonté d'aller en guerre.
+- **libéralisme impérial** — la concurrence entre citoyens d'une république libre mène à des tensions qui trouvent des résolutions à l'international (Machiavelli), notamment auprès des puissances qui ne partagent pas leurs valeurs démocratiques.
+- **libéralisme internationaliste** — dans la lignée de ce que Kant a théorisé dans son ouvrage *Vers la paix perpétuelle*, les républiques qui appliquent la séparation des pouvoirs, mettent en place des pactes de non agression avec les républiques partageant les mêmes valeurs et travaillent pour construire un droit commun et cosmopolite permettent d'atteindre une forme de paix. Ainsi, la séparation des pouvoirs resserre les limites constitutionnelles à la guerre. Le pacte de non agression utilise le droit international comme un mécanisme d'ordre pour lier les États libéraux entre eux et les inciter à faire preuve de retenue dans leurs relations avec les États non libéraux. La troisième condition (droit cosmopolite) utilise la liberté de circulation (des personnes et des biens) comme moyen économique et culturel de favoriser la sécurité et le profit mutuels. Dans la lignée du livre de Fukuyama, la fin de l'histoire, cette manière de créer des liens forts avec le commerce peut être vue comme la fin de l'histoire, entendue comme la fin des luttes entre grandes idéologies et donc de conflictualité profonde.
+
+De la même manière que les réalistes fondent une partie de leurs analyses sur l'équilibre des puissances, les libéraux ont théorisé d'autres concepts ou principes autour desquels une grande partie de leur analyse s'articulent. L'un d'entre eux est le suivant : "les démocraties ne se font pas la guerre" (democratic peace theory), et est enrichi notamment par un travail mené par Michael Doyle.
+
+Les démocraties ne se feraient pas la guerre car :
+
+- Les Etats libéraux, prônant les droits individuels, sont en général pacifiques : les républiques sont plus modérées que les rois (système de délibération), elles doivent rendre compte à leurs citoyens et justifier les guerres (contrairement à la monarchie qui tire le droit de faire la guerre du droit divin et s'appuie sur des sujets pour la mener). Pour toutes ces raisons, les républiques sont moins tournées vers la guerre.
+- Ce serait particulièrement vrai pour les Etats libéraux entre eux : partageant des mêmes valeurs, ils ont tendance à créer des coalitions communes au niveau international (i) tandis que le commerce qu'ils promeuvent ainsi et à travers lui le partage des valeurs culturelles permet de resserrer les liens au niveau individuel (ii). Cette fédération d'Etat peut d'ailleurs constituer un ensemble qui dépasse la souveraineté nationale et promeut une sécurité collective (modèle ONU augmenté).
+
+En revanche, il faut noter "l'imprudence internationale des démocraties" : la différence des valeurs entre démocratie et autocratie peut créer des conflits importants. Parfois, la volonté d'imposer ses propres normes ou de s'assurer qu'elles soient préservées parce qu'elles seraient plus justes peut même conduire les libéraux à aller en guerre contre les autocraties davantage que les autocraties entre elles.
+
+On résume ainsi cette théorie à la phrase suivante : "les démocraties ne se font pas la guerre … mais elles font davantage la guerre aux autocraties".
+
+D'autres concepts, notamment néo-libéraux, sont particulièrement discutés aujourd'hui tels que le concept d'interdépendance complexe (notamment dans le cadre de la relation US - Chine). L'idée est qu'entre les pays dans lesquels il existe une interdépendance complexe, ce qui est le cas dès lors que l'on tisse des liens économiques forts, le rôle de l'armée dans la résolution des conflits est négligé. La force et sa menace ne sont plus structurantes.
+
+Les fondamentaux libéraux ayant été posés, regardons maintenant dans quelle mesure les théories libérales s'intéressent aux technologies :
+
+### (i) Les technologies sont (en partie) encadrées par le droit international
+
+Dans la perspective libérale, la guerre peut être neutralisée en grande partie grâce aux accords et au droit international. Ce serait particulièrement vrai pour les relations entre démocraties qui de facto tendent à respecter ce droit. Ainsi, conformément à cette approche, les technologies sont contrôlées par des lois, et les lois (en tant qu'institutions) contraignent les Etats à ne pas utiliser ou au contraire à développer certaines technologies. Autrement dit, l'impact des technologies dans les relations interétatiques serait inversement proportionnel à la contrainte de leur encadrement dans le droit.
+
+Les libéraux proposent d'évaluer le pouvoir de contrainte des lois régulant certaines technologies à travers la notion de conformité (compliance), et supposent ce qui suit : si les États se conforment aux lois, alors ils sont nécessairement contraints d'utiliser les technologies en accord avec ce que disent les lois — soit à les supprimer, soit à les utiliser dans un cadre défini. Or, le problème d'une telle approche est qu'elle suppose implicitement deux points problématiques :
+
+1. cela suppose que l'évaluation de la conformité ou non d'un État au droit pourrait être évaluée de façon indépendante et objectivée. Cela peut être vrai pour certaines règles qui sont extrêmement claires (par exemple, les traités qui interdisent l'utilisation d'une arme en soi), mais il en va certainement autrement pour les règles ambiguës. Dans certains cas, deux interprétations également légitimes peuvent être considérées comme légales, et il devient difficile de dire laquelle est réellement conforme à la règle. C'est particulièrement vrai pour certaines technologies (ex : utilisation de l'intelligence artificielle à des visées belliqueuses), notamment celles dont les caractéristiques et les définitions ne sont pas clairement statuées.
+2. les libéraux n'abordent pas la question de savoir si les acteurs peuvent être contraints par les lois même s'ils ne les respectent pas. Ils réduisent la myriade d'effets du droit à la simple notion dichotomique de conformité. Pourtant, la règle peut être violée et rester contraignante, et vice versa. Les libéraux, en encadrant leur analyse à la question de la "conformité", réduisent nécessairement la portée des effets possibles des lois sur les technologies des acteurs. Cette portée tend également à exclure de leur analyse les normes coutumières, sous prétexte qu'elles sont trop larges, et qu'elles sont de toute façon reflétées par les traités juridiques. Cette exclusion est problématique car les normes coutumières impliquent de nombreuses obligations qui ne sont pas nécessairement traduites dans les traités juridiques.
+
+### (ii) Les technologies sont des instruments au service des logiques de coopération et de conflictualité
+
+Les libéraux croient fondamentalement dans les vertus du droit et de la coopération, à condition que cette coopération s'exerce sous certaines conditions (asymétrie d'informations limitées, fin du "brouillard" de la décision, incitations à coopérer, etc. voir les travaux néo-libéraux à ce sujet). Ainsi, les technologies sont des objets de négociation au cœur de logiques coopératives dans lesquels tous les Etats participants pourraient y trouver leur compte. Plusieurs auteurs voient dans les accords autour de l'arme nucléaire les exemples de ces logiques coopératives à travers desquelles les Etats trouvent un intérêt supérieur et commun à coopérer autour d'une technologie. Quelque part, les libéraux évaluent le pouvoir des technologies au prisme de leur capacité à être au cœur d'actions de coopération.
+
+De la même manière, les libéraux intègrent le rôle des technologies dès lors qu'elles sont utilisées comme :
+
+- vecteurs de rapprochement culturels entre Etats démocratiques (rappelons pour l'anecdote que Fukuyama voyait dans la diffusion des magnétoscopes au-delà des frontières américaines des formidables vecteurs de la diffusion des normes américaines dans le monde et un des outils permettant la fin de l'histoire) ;
+- intérêt économique bien compris qui diminue les risques de tension et d'escalade entre pays (autrement dit, l'intérêt supérieur de la production / utilisation de la technologie facilite et renforce la coopération entre Etats — ex : ne pas aller en guerre contre Taiwan car c'est le seul pays qui produit des semi-conducteurs à grande échelle aujourd'hui).
+
+**Limites** : la théorie libérale a plusieurs limites. Outre le traumatisme de la première guerre mondiale, beaucoup d'auteurs critiquent cette théorie pour un manque de clarté sur la définition de ce qu'est un Etat libéral (Zakaria et l'illiberal democracy) ou encore sur le manque d'exemples empiriques qui pourraient conforter l'idée que les intérêts économiques peuvent vraiment prévaloir sur les enjeux de puissance (se dessine l'idée que le commerce compte quand les puissances vont bien). Enfin, le rôle du droit dans la vision libérale est parfois vu dans un versant strictement régulateur, comme si la norme ne permettait que de réguler. Or, de nombreux travaux, y compris constructiviste, montre que la norme régule mais permet aussi ce que l'on appelle la logique de l'appropriation, c'est-à-dire la création de règles institutionnalisées qui s'appliquent pour un rôle ou une identité spécifique et qui sont co-constitutives des actions des hommes.
+
+## E. Le constructivisme
+
+Le constructivisme est une approche d'analyse sociale sous-tendue par les principes suivants :
+
+- L'interaction humaine est avant tout construite par des facteurs non matériels ;
+- Ces facteurs non-matériels sont principalement des croyances "intersubjectives" qui ne peuvent être réduites à un seul individu / au niveau individuel ;
+- Les croyances partagées construisent les intérêts et les identités des acteurs.
+
+C'est une approche fondamentalement sociale en tant qu'elles part du principe que le contexte social est décisif pour expliquer les rationalités et intérêts des acteurs. Elle pose très clairement les questions suivantes :
+
+- Comment les identités des acteurs se créent ?
+- Comment les identités orientent-elles les intérêts perçus des acteurs ? Comment ces derniers orientent-ils les relations internationales ?
+- Les acteurs transnationaux et les entrepreneurs moraux, soit ceux qui construisent et promeuvent les idées / normes, sont-ils les (seules) clés du changement ?
+
+Il est important de comprendre que le contexte social est pris en compte dans l'ensemble des différentes théories. Les perspectives que l'on considère comme rationalistes / centrées sur le principe d'utilité rationnelle (telles que le réalisme et le libéralisme) supposent — plus ou moins implicitement — que l'histoire sociale d'une technologie est importante, voire parfois tout aussi cruciale que les "simples problèmes d'efficacité technique" que peut rencontrer la technologie.
+
+Ainsi, aux yeux des réalistes et des libéraux, lorsque les acteurs doivent décider quand et quelles technologies seront utilisées par eux (ou par d'autres acteurs), ils mettent nécessairement en balance ce qu'ils perçoivent comme l'efficacité technique de la technologie par rapport au "statut social" qui lui est attaché. C'est de ce compromis permanent que découle leur décision finale. Dit autrement, les notions d'efficacité au cœur de ces théories sont toujours pensées comme un agrégat de considérations qui sont en partie sociales et que les acteurs peuvent mettre à distance.
+
+La perspective constructiviste, qualifiée elle d'irrationnelle ou idéationnelle, va plus loin : elle suppose que les acteurs ne peuvent pas se distancer des significations sociales, y compris celles qui sont attachées aux technologies. Autrement dit, les notions d'utilités et d'efficacité qui guident en partie les acteurs sont intrinsèquement liées aux identités, cultures et perceptions de ces derniers. Elles sont co-constitutives de ces dernières et se renforcent sans arrêt l'une l'autre. C'est pourquoi, fort de ce postulat, seule l'approche constructiviste s'intéresse de manière appuyée à la construction de ces normes sociales et de leur évolution dans le temps. Si ces éléments sont au mieux considérés comme importants par les théories rationalistes, ils ne font pas partie des objets d'étude retenus.
+
+Un texte particulièrement fondateur : *Anarchy is what States make of it* d'Alexander Wendt.
+
+> "The character of international life is determined by the beliefs and expectations that states have about each other, and these are constituted largely by social rather than material structure"
+
+S'opposant à Waltz et à d'autres (néo)réalistes et néolibéraux qui fondent leurs analyses sur des hypothèses matérialistes, Wendt soutient que la structure internationale est un phénomène social, voire culturel, plutôt qu'un phénomène matériel ; et, puisque la base de l'interaction sociale est la connaissance partagée, la structure est faite de connaissances et de perceptions partagées. Ainsi, Wendt encourage les chercheurs à repenser la relation structure / agent. En effet, les structures peuvent avoir deux types d'effets :
+
+- **causal** : un changement dans un X existant indépendamment conduit à un changement dans l'état de Y ;
+- **constitutif** : les propriétés d'un X font de Y ce qu'il est.
+
+Les spécialistes de la RI utilisent presque toujours le langage de l'interaction causale pour décrire la relation agent-structure. En réalité pour Wendt, cette relation s'agit à la fois d'une co-détermination (causale) et d'une constitution mutuelle (constitutive). Dès lors, la structure que les néoréalistes et les néolibéralistes ignorent dans le système international est culturelle. Une culture, selon Wendt, est composée à la fois de connaissances communes (ou partagées) et de connaissances collectives. Les connaissances communes sont les connaissances que les acteurs ont tous sur une institution ou un processus, mais qui est réductible aux connaissances individuelles des acteurs — ce ne sont que des croyances dans les têtes, ou des modèles mentaux partagés. Les structures de la connaissance collective ne sont pas aussi réductibles : elles sont détenues par des groupes et "génèrent des schémas de macro-niveau dans la culture et dans le comportement individuel au fil du temps" (rôle des communautés épistémiques).
+
+La contribution constructiviste consiste à inclure la culture, ou la connaissance collective, dans les forces structurelles qui déterminent le comportement des États, et à insister sur le fait que la culture partagée du système international a un effet constitutif sur l'identité et les intérêts des États. Il s'agit d'une relation réciproque : les acteurs et leur interaction sont essentiels aux pouvoirs causaux de la structure. Ainsi, les agents, la façon dont ils interagissent et la nature répétée de leur interaction sont en fait des éléments essentiels de la structure.
+
+En supposant que la structure de la politique internationale soit une anarchie, il n'y a pas une seule "logique de l'anarchie", comme le prétend Waltz. Wendt caractérise le choix entre le réalisme et le libéralisme comme un choix entre le point de vue selon lequel la politique internationale contient une logique unique qui ne dépend en rien de ses éléments (centrée sur la structure), et l'opinion selon laquelle la logique de l'anarchie est entièrement réductible à ses éléments (centré sur l'agent). La théorie de Wendt constitue une troisième option : (1) les structures anarchiques construisent effectivement leurs éléments, mais (2) ces structures varient au niveau macro et peuvent donc avoir de multiples logiques.
+
+Ainsi, "Le pouvoir et les intérêts matériels sont toujours importants, mais leur signification et leurs effets dépendent de la structure sociale du système — et notamment de la structure pour laquelle une des trois 'cultures' de l'anarchie est dominante."
+
+Il existe ainsi trois cultures de l'anarchie :
+
+- **Hobbes** : les États caractérisent les autres États comme des ennemis (qui ne reconnaissent pas le premier État comme des agents libres légitimes), avec les principes que l'on connaît qui en découlent (sécurité à somme nulle, dilemmes de sécurité aigus).
+- **Locke** : les États caractérisent les autres États comme des rivaux (qui reconnaissent la souveraineté de l'autre) ; possibilité de réciprocité ou de légitimité.
+- **Kantien** : les États qualifient les autres d'amis (les différends doivent être résolus sans guerre ni menace de guerre ; si un État est menacé, les États se battront ensemble) ; une communauté de sécurité est créée lorsque les États sont en mesure de s'engager dans des moyens pacifiques de résolution des conflits.
+
+En résumé, les Etats sont pris dans des "cultures" d'anarchie : hobbesienne, lockienne, kantienne. L'internalisation de la culture est la clé : elle explique la reproduction des pratiques et joue un rôle constitutif dans l'identité de l'Etat. C'est pourquoi dit Wendt, si des aliens attaquaient demain (expérience de pensée), la culture du système qui nous lierait avec eux dépendrait ultimement de la manière dont on analyse leurs premières actions.
+
+Une vidéo qui pourra vous aider à mieux comprendre ce texte fondateur : [https://www.youtube.com/watch?v=X-TP6GQ-9sg](https://www.youtube.com/watch?v=X-TP6GQ-9sg)
+
+La théorie constructiviste perçoit le rôle des technologies de deux manières : à la fois comme une pratique liée à la socio-histoire des acteurs (i) et une pratique liée à l'identité de ces derniers (ii).
+
+### (i) Comprendre l'histoire sociale des technologies pour comprendre leur trajectoire
+
+Pour les constructivistes, "la technologie n'est jamais seulement une technologie" car chaque technologie "a une signification socialement construite et un objectif socialement orienté". Par conséquent, "la signification du développement technologique ne peut jamais être pleinement comprise indépendamment de leurs contextes sociaux" (Ellis, 1975). C'est donc en retraçant l'histoire sociale d'une technologie que l'on peut comprendre quand et pourquoi les acteurs perçoivent une technologie comme efficace, révolutionnaire ou encore inappropriée, amorale ou obsolète.
+
+Pour exemple, les pré-conceptions sociales de ce qui est considéré comme une pratique honorable de la guerre, partagées par ceux qui utilisent une même technologie, sont décisives pour comprendre comment les acteurs vont utiliser la technologie en temps de guerre mais aussi de paix. Plus la technologie est perçue comme nuisible ou en désaccord avec la conception de l'honneur des militaires, plus leur réticence à utiliser la technologie est forte (ex : les drones et les résistances dans l'armée de l'air). Deuxièmement, la position sociale des militaires détermine la force de la signification sociale attachée à la technologie. Plus les militaires sont bien considérés par le reste de la société, plus ils ont tendance à être indépendants du contrôle civil, et plus ils ont de latitude pour imposer leur propre conception de l'honneur. Enfin, d'autres facettes du "paysage normatif", dont l'idéologie et l'identité, affectent également la conception de l'honneur partagée par les militaires et, en fin de compte, leur perception d'une technologie.
+
+### (ii) Technologies et identités
+
+Parce que les technologies confèrent aux États une "identité internationale" spécifique, les États choisissent délibérément de produire et de déployer certaines technologies afin d'acquérir cette identité et d'adhérer à des groupes puissants ou de signaler leur distance par rapport à ces groupes. Le cas des armes nucléaires est fascinant car des identités contradictoires ont été attachées à cette technologie. D'un côté, l'utilisation d'une arme nucléaire rend ses utilisateurs "barbares et non civilisés". D'autre part, l'acquisition de l'arme nucléaire fait "partie de ce que les États modernes croient devoir posséder pour être des États modernes légitimes".
+
+Quelques exemples du rôle de ces conceptions dans l'acquisition et l'utilisation des technologies sont listées par la littérature :
+
+- Certains États dits du "tiers monde" ont pu développer un ensemble très coûteux de "quatre ou cinq avions de pointe". Ces "armes de haute technologie" sont trop peu nombreuses pour permettre à ces États d'en tirer des "avantages stratégiques ou tactiques substantiels", mais elles sont perçues comme un moyen pour eux de rejoindre le "club des États-nations modernes".
+- L'Irak justifie son utilisation d'armes chimiques contre l'Iran par son statut d'outsider (c'est-à-dire un État non occidental qui viole régulièrement le droit international). L'utilisation par l'Irak d'armes chimiques, appelées "l'arme des faibles", est justifiée par, et en même temps renforce, le statut d'État "faible" de l'Irak. Inversement, parce que les armes chimiques définissent qui atteint la norme de civilisation, elles sont "impliquées dans le fonctionnement hiérarchique de l'organisation de la guerre et des relations internationales". Les Italiens auraient utilisé l'arme chimique pendant la guerre italo-éthiopienne de 1935-1936 au motif que "l'Éthiopie a montré qu'elle n'est pas digne du rang de nation civilisée" (Price, 1995). Dans cette perspective, parce que les Éthiopiens ne répondraient prétendument pas aux normes de la civilisation, les Italiens n'auraient pas dû avoir à se conformer à un comportement "civilisé".
+
+## Conclusion
+
+Quelle est la place des technologies dans les forces structurantes des relations internationales : décisive, nécessaire mais non suffisante, marginale ? Comment les théories des relations internationales permettent-elles de penser les bouleversements technologiques tels que la révolution numérique ?
+
+On remarque à travers ce panorama des trois théories principales qu'il n'y a pas de théorie qui place au cœur de son rationnel les évolutions technologiques. Pour autant, elles incluent toutes cette dimension dans leurs raisonnements, que ce soit en termes d'éléments de puissance, de menace, de coopération, de stabilisation, d'identité, de culture ou encore de normes. L'enjeu est de comprendre quand et pourquoi certaines théories s'imposent plus que d'autres pour expliquer / rationaliser / anticiper ce que l'on appelle la révolution numérique.
