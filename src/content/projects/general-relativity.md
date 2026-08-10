@@ -2,7 +2,6 @@
 title: "Diplomacie numérique : enjeux et défis pour l'Union Européenne"
 description: A geometric theory of gravitation that describes gravity as the curvature of spacetime caused by mass and energy, superseding Newton's law of universal gravitation.
 importance: 2
-category: physics
 img: /assets/img/12.jpg
 ---
 
