@@ -322,7 +322,7 @@
   }
   .header-bar h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-size: 17px;
     font-family: var(--font-sans);
     font-weight: 700;
   }

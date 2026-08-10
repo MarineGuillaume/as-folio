@@ -176,7 +176,7 @@ export const site = {
 
   blog: {
     /** Name shown in the blog page heading. */
-    name: 'as-folio',
+    name: 'Blog',
     description: 'A simple, clean, and responsive Astro template for academics.',
     /** Number of posts per page. */
     postsPerPage: 5,
