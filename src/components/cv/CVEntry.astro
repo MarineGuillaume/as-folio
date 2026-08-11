@@ -12,9 +12,11 @@ interface Props {
   highlights?: string[];
   /** URL to make the title a link. */
   url?: string;
+  /** Render the subtitle in the site accent color, non-bold. */
+  subtitleAccent?: boolean;
 }
 
-const { title, subtitle, location, dates, highlights = [], url } = Astro.props;
+const { title, subtitle, location, dates, highlights = [], url, subtitleAccent = false } = Astro.props;
 ---
 
 <li class="list-group-item">
@@ -62,7 +64,10 @@ const { title, subtitle, location, dates, highlights = [], url } = Astro.props;
       }
       {
         subtitle && (
-          <h6 class="ml-md-4 ml-1" style="font-size: 0.95rem;">
+          <h6
+            class={subtitleAccent ? 'ml-md-4 ml-1 subtitle-accent' : 'ml-md-4 ml-1'}
+            style="font-size: 0.95rem;"
+          >
             {subtitle}
           </h6>
         )
@@ -81,3 +86,10 @@ const { title, subtitle, location, dates, highlights = [], url } = Astro.props;
     </div>
   </div>
 </li>
+
+<style>
+  .subtitle-accent {
+    color: var(--global-theme-color);
+    font-weight: 400;
+  }
+</style>
