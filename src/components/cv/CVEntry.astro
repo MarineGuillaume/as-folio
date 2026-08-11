@@ -2,8 +2,10 @@
 interface Props {
   /** Main title line (job title, degree, paper title). */
   title: string;
-  /** Secondary line (institution, company, journal). */
+  /** Secondary line (institution, company, authors). */
   subtitle?: string;
+  /** Venue (journal, publisher) — rendered after subtitle in the accent color. */
+  venue?: string;
   /** Location string — shown below date badge. */
   location?: string;
   /** Date range or single date string (already formatted). */
@@ -16,7 +18,16 @@ interface Props {
   subtitleAccent?: boolean;
 }
 
-const { title, subtitle, location, dates, highlights = [], url, subtitleAccent = false } = Astro.props;
+const {
+  title,
+  subtitle,
+  venue,
+  location,
+  dates,
+  highlights = [],
+  url,
+  subtitleAccent = false,
+} = Astro.props;
 ---
 
 <li class="list-group-item">
@@ -63,12 +74,13 @@ const { title, subtitle, location, dates, highlights = [], url, subtitleAccent =
         )
       }
       {
-        subtitle && (
-          <h6
-            class={subtitleAccent ? 'ml-md-4 ml-1 subtitle-accent' : 'ml-md-4 ml-1'}
-            style="font-size: 0.95rem;"
-          >
-            {subtitle}
+        (subtitle || venue) && (
+          <h6 class="ml-md-4 ml-1" style="font-size: 0.95rem;">
+            {subtitle && (
+              <span class={subtitleAccent ? 'subtitle-accent' : ''}>{subtitle}</span>
+            )}
+            {subtitle && venue ? ' — ' : ''}
+            {venue && <span class="subtitle-accent">{venue}</span>}
           </h6>
         )
       }

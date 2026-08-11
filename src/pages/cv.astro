@@ -157,6 +157,7 @@ if (format === 'rendercv' && rc) {
                         location={e.location}
                         dates={formatDateRange(e.start_date, e.end_date)}
                         highlights={e.highlights}
+                        subtitleAccent
                       />
                     ))}
                   </ul>
@@ -186,7 +187,8 @@ if (format === 'rendercv' && rc) {
                     {rcPublications.map((e) => (
                       <CVEntry
                         title={e.title ?? ''}
-                        subtitle={[e.authors?.join(', '), e.journal].filter(Boolean).join(' — ')}
+                        subtitle={e.authors?.join(', ')}
+                        venue={e.journal}
                         dates={formatCVDate(e.date)}
                         url={e.doi ? `https://doi.org/${e.doi}` : e.url}
                       />
