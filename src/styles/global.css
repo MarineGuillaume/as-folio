@@ -1140,6 +1140,10 @@
     line-height: 1.7;
   }
 
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+
   .prose a {
     color: var(--global-theme-color);
   }
