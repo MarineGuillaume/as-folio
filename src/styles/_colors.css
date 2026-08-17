@@ -42,7 +42,7 @@
 :root {
   color-scheme: light;
 
-  --global-bg-color: var(--color-white);
+  --global-bg-color: #f7f7f8;
   --global-code-bg-color: #f3f4f6;
   --global-text-color: #1a1a1a;
   --global-text-color-light: #6c757d;
